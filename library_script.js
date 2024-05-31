@@ -7,10 +7,11 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-Book.prototype.info = function() {
-    return `${title} by ${author}, ${pages}, ${read}`;
-}
+const book1 = new Book("Harry Potter", "J.K. Rowling", "500 pages", "read");
+const book2 = new Book("Eragon", "Christopher Wild", "600 Pages", "read");
+const book3 = new Book("Star Wars", "George Lucas", "1000 Pages", "unread");
 
 function addBookToLIbrary(book) {
     myLibrary.push(book)
 }
+
