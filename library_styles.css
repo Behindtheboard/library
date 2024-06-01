@@ -189,7 +189,7 @@ body {
 
 #container {
     display: grid;
-    grid-template: 100vh / 295px 1fr;
+    grid-template: 100vh / 30% 1fr;
 }
 
 #sidebar {
@@ -202,4 +202,9 @@ body {
     grid-area: 1 / 2;
     background-color: burlywood;
     border: 3px black;
+    display: flex;
+}
+
+.book-card {
+    
 }
