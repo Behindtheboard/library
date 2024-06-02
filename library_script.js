@@ -5,31 +5,9 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    createCard(this);
 }
-function createCard(book) {
-    const bookshelf = document.querySelector("#bookshelf");
 
-    let book = bookshelf.createElement('div');
-    book.classList.add("book-card");
-    book.setAttribute('id',`${book}Card`)
-    bookshelf.appendChild(book);
-    
-    const bookTitle = book.createElement('div');
-    bookTitle.classList.add("book-title");
-    bookTitle.textContent = `${book.title}`;
-    book.appendChild(bookTitle);
-
-    const bookAuthor = book.createElement('div');
-    bookAuthor.classList.add("book-author");
-    bookAuthor.textContent = `${book.author}`;
-    book.appendChild(bookAuthor);
-
-    const bookPages = book.createElement('div');
-    bookPages.classList.add("book-pages");
-    bookPages.textContent = `${book.pages}`;
-    book.appendChild(bookPages);
-}
+const bookshelf = document.querySelector("#bookshelf");
 
 function addBookToLIbrary(book) {
     myLibrary.push(book);
@@ -41,5 +19,28 @@ const book3 = new Book("Star Wars", "George Lucas", "1000 Pages", "unread");
 
 addBookToLIbrary(book1);
 addBookToLIbrary(book2);
+addBookToLIbrary(book3);
 console.log(myLibrary);
-console.log(book1.title)
+
+myLibrary.forEach(
+    (book) => {
+       const bookCard = document.createElement('div');
+       bookCard.classList.add("book-card");
+       bookshelf.appendChild(bookCard);
+       console.log("hit");
+       
+       const bookTitle = document.createElement('div');
+       bookTitle.classList.add("book-title");
+       bookTitle.textContent = book.title;
+       bookCard.appendChild(bookTitle);
+   
+       const bookAuthor = document.createElement('div');
+       bookAuthor.classList.add("book-author");
+       bookAuthor.textContent = book.author;
+       bookCard.appendChild(bookAuthor);
+   
+       const bookPages = document.createElement('div');
+       bookPages.classList.add("book-pages");
+       bookPages.textContent = book.pages;
+       bookCard.appendChild(bookPages);
+   });
