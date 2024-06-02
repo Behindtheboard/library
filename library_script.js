@@ -7,8 +7,6 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
-const bookshelf = document.querySelector("#bookshelf");
-
 function addBookToLIbrary(book) {
     myLibrary.push(book);
 }
@@ -22,8 +20,10 @@ addBookToLIbrary(book2);
 addBookToLIbrary(book3);
 console.log(myLibrary);
 
+
 myLibrary.forEach(
     (book) => {
+       const bookshelf = document.querySelector("#bookshelf");
        const bookCard = document.createElement('div');
        bookCard.classList.add("book-card");
        bookshelf.appendChild(bookCard);
