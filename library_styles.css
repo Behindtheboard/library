@@ -190,21 +190,32 @@ body {
 #container {
     display: grid;
     grid-template: 100vh / 30% 1fr;
+    background-color: burlywood;
 }
 
 #sidebar {
     grid-area: 1 / 1;
-    background-color: grey;
+    background-color: #808080;
     border: 3px black;
+    text-align: center;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+#add-book {
+    font-size: 3rem;
 }
 
 #bookshelf {
     grid-area: 1 / 2;
-    background-color: burlywood;
     border: 10px black;
     display: grid;
-    grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+    grid-template: repeat(4, minmax(225px, 450px)) / repeat(4, minmax(120px, 200px));
+    padding: 30px;
     gap: 30px;
+    justify-content: center;
 }
 
 .book-card {
@@ -213,6 +224,6 @@ body {
     align-items: center;
     justify-content: center;
     background-color: white;
-    max-width: 120px;
-    max-height: 240px;
+    font-size: 1rem;
+    
 }
