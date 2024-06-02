@@ -43,4 +43,13 @@ myLibrary.forEach(
        bookPages.classList.add("book-pages");
        bookPages.textContent = book.pages;
        bookCard.appendChild(bookPages);
+
+       const readUnread = document.createElement('div');
+       readUnread.classList.add("readUnread");
+       bookCard.appendChild(readUnread);
+
+       const deleteBook = document.createElement('button');
+       deleteBook.classList.add("deleteBook-button")
+       deleteBook.textContent = 'remove';
+       bookCard.appendChild(deleteBook);
    });
