@@ -17,6 +17,30 @@
         </div>
         <div id="bookshelf">
         </div>
+        <dialog id="new-book-dialog">
+            <form method="dialog">
+                <div>
+                    <label for="title-input">Title</label>
+                    <input type="text" id="title-input" name="title-input" required>
+                </div>
+                <div>
+                    <label for="author-input">Author</label>
+                    <input type="text" id="author-input" name="author-input" required>
+                </div>
+                <div>
+                    <label for="pages-input">How many pages are in the book?</label>
+                    <input type="text" id="pages-input" name="pages-input" inputmode="numeric" required>
+                </div>
+                <div>
+                    <input type="checkbox" id="read-check" name="read-check" checked>
+                    <label for="read-check">Check if read.</label>
+                </div>
+                <div>
+                    <input type="submit" id="confirm-button" value="Add">
+                    <button id="cancel-button">Cancel</button>
+                </div>
+            </form>
+        </dialog>
     </div>
 </body>
 </html>

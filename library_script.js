@@ -11,15 +11,38 @@ function addBookToLIbrary(book) {
     myLibrary.push(book);
 }
 
-const book1 = new Book("Harry Potter", "J.K. Rowling", "500 pages", "read");
-const book2 = new Book("Eragon", "Christopher Wild", "600 Pages", "read");
-const book3 = new Book("Star Wars", "George Lucas", "1000 Pages", "unread");
-
+const book1 = new Book("Harry Potter", "J.K. Rowling", "500", "read");
 addBookToLIbrary(book1);
-addBookToLIbrary(book2);
-addBookToLIbrary(book3);
-console.log(myLibrary);
 
+const addNewBookButton = document.querySelector("#add-book");
+const newBookDialog = document.querySelector("#new-book-dialog");
+const titleInput = document.getElementById("title-input");
+const authorInput = document.getElementById("author-input");
+const pagesInput = document.getElementById("pages-input");
+const readCheck = document.getElementById("read-check");
+const confirmButton = document.getElementById("confirm-button");
+const cancelButton = document.getElementById("cancel-button");
+
+addNewBookButton.addEventListener("click", () => {
+    newBookDialog.showModal();
+});
+
+cancelButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    newBookDialog.close();
+});
+
+newBookDialog.addEventListener("change", () =>{
+    readCheck.checked ? readCheck.value = "read" : readCheck.value = "unread";
+});
+
+confirmButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readCheck.value);
+    addBookToLIbrary(newBook);
+    console.log(myLibrary)
+    newBookDialog.close();
+});
 
 myLibrary.forEach(
     (book) => {
@@ -27,7 +50,6 @@ myLibrary.forEach(
        const bookCard = document.createElement('div');
        bookCard.classList.add("book-card");
        bookshelf.appendChild(bookCard);
-       console.log("hit");
        
        const bookTitle = document.createElement('div');
        bookTitle.classList.add("book-title");
@@ -41,7 +63,7 @@ myLibrary.forEach(
    
        const bookPages = document.createElement('div');
        bookPages.classList.add("book-pages");
-       bookPages.textContent = book.pages;
+       bookPages.textContent = `${book.pages} Pages`;
        bookCard.appendChild(bookPages);
 
        const readUnread = document.createElement('div');
@@ -50,6 +72,6 @@ myLibrary.forEach(
 
        const deleteBook = document.createElement('button');
        deleteBook.classList.add("deleteBook-button")
-       deleteBook.textContent = 'remove';
+       deleteBook.textContent = 'Remove';
        bookCard.appendChild(deleteBook);
    });
