@@ -8,11 +8,48 @@ function Book(title, author, pages, read) {
 }
 
 function addBookToLIbrary(book) {
-    myLibrary.push(book);
+    myLibrary.push(book);    
+}
+
+function displayBooks() {
+    const bookshelf = document.querySelector("#bookshelf");
+    bookshelf.innerHTML = "";
+
+    myLibrary.forEach(
+        (book) => {
+           const bookCard = document.createElement('div');
+           bookCard.classList.add("book-card");
+           bookshelf.appendChild(bookCard);
+           
+           const bookTitle = document.createElement('div');
+           bookTitle.classList.add("book-title");
+           bookTitle.textContent = book.title;
+           bookCard.appendChild(bookTitle);
+       
+           const bookAuthor = document.createElement('div');
+           bookAuthor.classList.add("book-author");
+           bookAuthor.textContent = book.author;
+           bookCard.appendChild(bookAuthor);
+       
+           const bookPages = document.createElement('div');
+           bookPages.classList.add("book-pages");
+           bookPages.textContent = `${book.pages} Pages`;
+           bookCard.appendChild(bookPages);
+    
+           const readUnread = document.createElement('div');
+           readUnread.classList.add("readUnread");
+           bookCard.appendChild(readUnread);
+    
+           const deleteBook = document.createElement('button');
+           deleteBook.classList.add("deleteBook-button")
+           deleteBook.textContent = 'Remove';
+           bookCard.appendChild(deleteBook);
+       });
 }
 
 const book1 = new Book("Harry Potter", "J.K. Rowling", "500", "read");
 addBookToLIbrary(book1);
+displayBooks();
 
 const addNewBookButton = document.querySelector("#add-book");
 const newBookDialog = document.querySelector("#new-book-dialog");
@@ -40,38 +77,7 @@ confirmButton.addEventListener("click", (event) => {
     event.preventDefault();
     let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readCheck.value);
     addBookToLIbrary(newBook);
-    console.log(myLibrary)
+    displayBooks();
     newBookDialog.close();
 });
 
-myLibrary.forEach(
-    (book) => {
-       const bookshelf = document.querySelector("#bookshelf");
-       const bookCard = document.createElement('div');
-       bookCard.classList.add("book-card");
-       bookshelf.appendChild(bookCard);
-       
-       const bookTitle = document.createElement('div');
-       bookTitle.classList.add("book-title");
-       bookTitle.textContent = book.title;
-       bookCard.appendChild(bookTitle);
-   
-       const bookAuthor = document.createElement('div');
-       bookAuthor.classList.add("book-author");
-       bookAuthor.textContent = book.author;
-       bookCard.appendChild(bookAuthor);
-   
-       const bookPages = document.createElement('div');
-       bookPages.classList.add("book-pages");
-       bookPages.textContent = `${book.pages} Pages`;
-       bookCard.appendChild(bookPages);
-
-       const readUnread = document.createElement('div');
-       readUnread.classList.add("readUnread");
-       bookCard.appendChild(readUnread);
-
-       const deleteBook = document.createElement('button');
-       deleteBook.classList.add("deleteBook-button")
-       deleteBook.textContent = 'Remove';
-       bookCard.appendChild(deleteBook);
-   });
