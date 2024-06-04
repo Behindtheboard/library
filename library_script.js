@@ -36,20 +36,34 @@ function displayBooks() {
            bookPages.textContent = `${book.pages} Pages`;
            bookCard.appendChild(bookPages);
     
-           const readUnread = document.createElement('div');
+           const readUnread = document.createElement('button');
+           let readStatus = book.read;
            readUnread.classList.add("readUnread");
+           readUnread.textContent = `${readStatus}`;
            bookCard.appendChild(readUnread);
     
            const deleteBook = document.createElement('button');
            deleteBook.classList.add("deleteBook-button")
            deleteBook.textContent = 'Remove';
            bookCard.appendChild(deleteBook);
-       });
-}
 
-const book1 = new Book("Harry Potter", "J.K. Rowling", "500", "read");
-addBookToLIbrary(book1);
-displayBooks();
+           deleteBook.addEventListener("click", () => {
+                myLibrary.splice(myLibrary.indexOf(book), 1);
+                displayBooks();
+           });
+
+           readUnread.addEventListener("click", () => {
+               if (book.read === "Read") {
+                    book.read = "Not Read"
+               } else if (book.read == "Not Read") {
+                    book.read = "Read"
+               }
+               console.log(book.read)
+               displayBooks()
+           });
+        });
+    }
+    
 
 const addNewBookButton = document.querySelector("#add-book");
 const newBookDialog = document.querySelector("#new-book-dialog");
@@ -81,3 +95,6 @@ confirmButton.addEventListener("click", (event) => {
     newBookDialog.close();
 });
 
+const book1 = new Book("Harry Potter", "J.K. Rowling", "500", "Read");
+addBookToLIbrary(book1);
+displayBooks();
