@@ -82,11 +82,6 @@ newBookDialog.addEventListener("change", () => {
     readCheck.checked ? readCheck.value = "Read" : readCheck.value = "Not Read";
 });
 
-pagesInput.addEventListener("onkeypress", () => {
-
-}
-)
-
 confirmButton.addEventListener("click", (event) => {
     event.preventDefault();
     if (titleInput.checkValidity() === true & authorInput.checkValidity() === true & pagesInput.checkValidity() === true) {
