@@ -227,3 +227,8 @@ h1 {
     font-size: 1rem;
 }
 
+input:invalid {
+    border-color: rgb(255, 172, 172);
+    background-color: rgb(255, 152, 152);
+}
+

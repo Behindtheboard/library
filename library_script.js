@@ -53,12 +53,7 @@ function displayBooks() {
            });
 
            readUnread.addEventListener("click", () => {
-               if (book.read === "Read") {
-                    book.read = "Not Read"
-               } else if (book.read == "Not Read") {
-                    book.read = "Read"
-               }
-               console.log(book.read)
+               book.read === "Read" ? book.read = "Not Read" : book.read = "Read";
                displayBooks()
            });
         });
@@ -89,10 +84,12 @@ newBookDialog.addEventListener("change", () =>{
 
 confirmButton.addEventListener("click", (event) => {
     event.preventDefault();
-    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readCheck.value);
-    addBookToLIbrary(newBook);
-    displayBooks();
-    newBookDialog.close();
+    if (titleInput.checkValidity() === true & authorInput.checkValidity() === true & pagesInput.checkValidity() === true) {
+        let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readCheck.value);
+        addBookToLIbrary(newBook);
+        displayBooks();
+        newBookDialog.close();
+    }
 });
 
 const book1 = new Book("Harry Potter", "J.K. Rowling", "500", "Read");
