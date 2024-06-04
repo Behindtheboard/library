@@ -187,21 +187,30 @@ body {
     font-size: 12px;
 }
 
+button {
+    border: none;
+    background-color: #e6e2d3;
+}
+
 #container {
     display: grid;
     grid-template: 100vh / 30% 1fr;
-    background-color: rgb(161, 102, 42);
+    background-color: #dac292;
 }
 
 #sidebar {
     grid-area: 1 / 1;
-    background-color: #808080;
+    background-color:#b9936c;
     border: 3px black;
     text-align: center;
 }
 
 h1 {
     font-size: 4rem;
+}
+
+form {
+    font-size: 1rem;
 }
 
 #add-book {
@@ -213,7 +222,7 @@ h1 {
     grid-area: 1 / 2;
     border: 10px black;
     display: grid;
-    grid-template: repeat(4, 200px) / repeat(4, 150px);
+    grid-template: repeat(4, 250px) / repeat(4, 200px);
     padding: 50px;
     gap: 30px;
     justify-content: center;
@@ -224,8 +233,11 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: white;
+    background-color: #c4b7a6;
     font-size: 1rem;
+    width: 150px;
+    height: 200px;
+    border: #b9936c 40px;
 }
 
 #new-book-dialog>form {
@@ -238,14 +250,24 @@ h1 {
 form div {
     display: grid;
     grid-template: 1fr / repeat(2, 200px);
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
 }
 
-#new-book-dialog input {
+form input {
     border-radius: 5px;
     box-shadow: none;
     border: none;
     max-height: 20px;
 }
+
+form button{
+    margin: 10px;
+    width: 100px;
+    height: 20px;
+}
+
 
 input:invalid {
     border-color: rgb(253, 203, 203);

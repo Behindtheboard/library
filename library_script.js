@@ -78,9 +78,14 @@ cancelButton.addEventListener("click", (event) => {
     newBookDialog.close();
 });
 
-newBookDialog.addEventListener("change", () =>{
-    readCheck.checked ? readCheck.value = "read" : readCheck.value = "unread";
+newBookDialog.addEventListener("change", () => {
+    readCheck.checked ? readCheck.value = "Read" : readCheck.value = "Not Read";
 });
+
+pagesInput.addEventListener("onkeypress", () => {
+
+}
+)
 
 confirmButton.addEventListener("click", (event) => {
     event.preventDefault();
